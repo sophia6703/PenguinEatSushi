@@ -1,7 +1,7 @@
-# Mini Game: <Penguin Eat Sushi>
+# Mini Game: Penguin Eat Sushi
 
-Welcome to our mini game, <Penguin Eat Sushi>, developed for the User Interface Programming 2 course.
-This project is a Unity-based game developed in C#, where players combine sushi pieces to create new, more valuable ones to keep a penguin fed. Inspired by the popular online mini-game 'Suika Game', <Penguin Eat Sushi> offers a fun and engaging gameplay experience with a delicious sushi twist.
+Welcome to our mini game, Penguin Eat Sushi, developed for the User Interface Programming 2 course.
+This project is a Unity-based game developed in C#, where players combine sushi pieces to create new, more valuable ones to keep a penguin fed. Inspired by the popular online mini-game 'Suika Game', Penguin Eat Sushi offers a fun and engaging gameplay experience with a delicious sushi twist.
 
 ## Table of Contents
 
