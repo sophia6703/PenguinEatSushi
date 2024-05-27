@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1672614718980896525}
   - component: {fileID: 7638035022968864093}
   - component: {fileID: 256445966894108956}
+  - component: {fileID: 6518827371276195506}
   m_Layer: 6
   m_Name: one
-  m_TagString: Fruit
+  m_TagString: Sushi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 597395571
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f8bd95620030d1a45a929ba5d2656867, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d81171d6f70f6e349b0d98593257c438, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -161,9 +162,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e97a669253d5ee479fc5580e1e8f1c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruitType: 0
-  fruitState: 0
-  limit_x: 2.75
+  sushiType: 0
+  sushiState: 0
+  limit_x: 2.2
   originalScale: {x: 0, y: 0, z: 0}
   scaleSpeed: 0.1
-  fruitScore: 1
+  sushiScore: 1
+--- !u!95 &6518827371276195506
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099362002840027402}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 79793a9c9b94fe44b9e7337c9eb9ccfa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

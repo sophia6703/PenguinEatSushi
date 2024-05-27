@@ -9,6 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/bigmelon.unity
+    path: Assets/Scenes/Start.unity
+    guid: 75303f5ef3864a241b4ca8f2ae3b1f41
+  - enabled: 1
+    path: Assets/Scenes/Homepage.unity
+    guid: 771a43fdd05485f4abac239db642904d
+  - enabled: 1
+    path: Assets/Scenes/Tutorial1.unity
+    guid: 72b7c15221c0a3848bcafb85260592e4
+  - enabled: 1
+    path: Assets/Scenes/Tutorial2.unity
+    guid: 13a91d259a193264eaa3dcc60a2ca63f
+  - enabled: 1
+    path: Assets/Scenes/Tutorial3.unity
+    guid: 5503655731fc48b4588cc6ecb1aa1074
+  - enabled: 1
+    path: Assets/Scenes/PenguinEatSushi.unity
     guid: 1504574307b8e204a84d65bbe53dcd97
   m_configObjects: {}

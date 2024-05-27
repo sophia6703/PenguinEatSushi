@@ -8,9 +8,17 @@ public class Topline : MonoBehaviour
     public bool IsMove = false;
     public float speed = 0.1f;
     public float limit_y = -5f;
+    private Animator animator;
+    
+
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            Debug.LogError("Animator component is missing from this GameObject.");
+        }
         
     }
 
@@ -36,29 +44,95 @@ public class Topline : MonoBehaviour
     //碰撞触发
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag.Contains("Fruit"))
+        
+        
+        if (collider.gameObject.tag.Contains("Sushi"))
         {
-            //判断游戏是否结束
-            if ((int)GameManager.gameManagerInstance.gameState < (int)GameState.GameOver)
+            if (collider.gameObject.GetComponent<Sushi>().sushiState== SushiState.Dropping)
             {
-                //并且是collision状态的水果
-                if (collider.gameObject.GetComponent<Fruit>().fruitState== FruitState.Collision)
-                {
-                    //gameover
-                    GameManager.gameManagerInstance.gameState = GameState.GameOver;
-                    Invoke("ChangeMoveAndCalculateScore",0.5f);
-                    //销毁剩余水果，计算分数
-                }
+                animator.SetBool("eat", true);
+            }
+            else 
+            {
+                animator.SetBool("eat", false);
+            }
+            var sushi = collider.gameObject.GetComponent<Sushi>();
+            if (sushi == null)
+            {
+                Debug.LogError("Sushi component is missing from the collided GameObject.");
+                return;
             }
 
-            //Calculate score
-            if(GameManager.gameManagerInstance.gameState == GameState.CalculateScore)
+            if (collider.gameObject.tag.Contains("Sushi"))
             {
-                float currentScore = collider.GetComponent<Fruit>().fruitScore;
-                GameManager.gameManagerInstance.TotalScore += currentScore;
-                GameManager.gameManagerInstance.totalScore.text = GameManager.gameManagerInstance.TotalScore.ToString();
-                Destroy(collider.gameObject);
+                if (sushi.sushiState == SushiState.Dropping)
+                {
+                    if (animator != null)
+                    {
+                        animator.SetBool("eat", true);
+                    }
+                }
+                else
+                {
+                    if (animator != null)
+                    {
+                        animator.SetBool("eat", false);
+                    }
+                }
+
+                if (GameManager.gameManagerInstance == null)
+                {
+                    Debug.LogError("GameManager instance is not initialized.");
+                    return;
+                }
+                
+                if ((int)GameManager.gameManagerInstance.gameState < (int)GameState.GameOver)
+                {
+                    if (sushi.sushiState == SushiState.Collision)
+                    {
+                    GameManager.gameManagerInstance.gameState = GameState.GameOver;
+                    Invoke("ChangeMoveAndCalculateScore", 0.5f);
+                    }
+                }
+
+                // Calculate score
+                if (GameManager.gameManagerInstance.gameState == GameState.CalculateScore)
+                {
+                    float currentScore = sushi.sushiScore;
+                    GameManager.gameManagerInstance.TotalScore += currentScore;
+                    if (GameManager.gameManagerInstance.totalScore != null)
+                    {
+                        GameManager.gameManagerInstance.totalScore.text = GameManager.gameManagerInstance.TotalScore.ToString();
+                    }
+                    Destroy(collider.gameObject);
+                }       
             }
+            
+            
+            
+            
+            
+            // //判断游戏是否结束
+            // if ((int)GameManager.gameManagerInstance.gameState < (int)GameState.GameOver)
+            // {
+            //     //并且是collision状态的水果
+            //     if (collider.gameObject.GetComponent<Sushi>().sushiState== SushiState.Collision)
+            //     {
+            //         //gameover
+            //         GameManager.gameManagerInstance.gameState = GameState.GameOver;
+            //         Invoke("ChangeMoveAndCalculateScore",0.5f);
+            //         //销毁剩余水果，计算分数
+            //     }
+            // }
+
+            // //Calculate score
+            // if(GameManager.gameManagerInstance.gameState == GameState.CalculateScore)
+            // {
+            //     float currentScore = collider.GetComponent<Sushi>().sushiScore;
+            //     GameManager.gameManagerInstance.TotalScore += currentScore;
+            //     GameManager.gameManagerInstance.totalScore.text = GameManager.gameManagerInstance.TotalScore.ToString();
+            //     Destroy(collider.gameObject);
+            // }
 
         }
     }
@@ -81,7 +155,7 @@ public class Topline : MonoBehaviour
         }
         
 
-        SceneManager.LoadScene("bigmelon");
+        SceneManager.LoadScene("HomePage");
     }
     
 }
