@@ -24,7 +24,6 @@ Penguin Eat Sushi is a casual 2D game where players combine different types of s
 ## Running Game
 
 **Option 1: Local Development**
-If you're interested in modifying the game or contributing to its development, follow these steps to set up the project locally:
 1. **Clone the Repository**
 2. **Open in Unity**
 - Open Unity Hub
@@ -32,7 +31,6 @@ If you're interested in modifying the game or contributing to its development, f
 - Open the project in Unity
 
 **Option 2: Direct Play (windows version)**
-If you just want to dive into the game, you can download the exe file. Here's how:
 1. **Download the ZIP file**
 2. **Extract and Run the exe**
 
