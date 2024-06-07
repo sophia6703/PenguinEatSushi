@@ -43,5 +43,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact
 
 For any inquiries or feedback, please contact us at:
-- Email: haringyuruiqin@gmail.com
-- GitHub: HaringYu(https://github.com/HaringYu)
+- Email: sophiaarchivv@gmail.com
+- GitHub: sophia6703(https://github.com/sophia6703)
