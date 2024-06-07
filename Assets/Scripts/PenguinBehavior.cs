@@ -13,20 +13,20 @@ public class PenguinBehavior : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // 检查碰撞的对象是否是盒子
+        // Check if the colliding object is a box
         if (other.gameObject.CompareTag("topline"))
         {
-            // 设置动画参数为true
+            // Set the animation parameter to true
             animator.SetBool("eat", true);
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        // 检查碰撞的对象是否是盒子
+        // Check if the colliding object is a box
         if (other.gameObject.CompareTag("topline"))
         {
-            // 设置动画参数为false
+            // Set the animation parameter to false
             animator.SetBool("eat", false);
         }
     }

@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-//默认 ready
-//点击开始到鼠标点击控制水果位置为StandBy，
-//松开鼠标水果跌落，Inprogress
-//水果跌落碰撞到地板或者其他水果之后，回滚StandBy,
-//水果超出边界，gameover
-//游戏结束之后，延迟0.5s,开始calculatescore
+//Default ready
+//Click start to click the mouse to control the fruit position to StandBy,
+//Release the mouse and the fruit falls, Inprogress
+//After the fruit falls and collides with the floor or other fruits, roll back to StandBy,
+//The fruit is out of the boundary, gameover
+//After the game ends, delay 0.5s and start calculating score
 public enum GameState
 {
     Ready = 0,
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     private GameObject optionPanel;
     public GameObject parent;
 
-    public static GameManager gameManagerInstance;//静态的实例，可以在别的类使用
+    public static GameManager gameManagerInstance;//Static instances can be used in other classes
 
     public GameState gameState = GameState.Ready;
 
@@ -99,10 +99,10 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //当前碰撞的水果类型cuttentSushiType
-    //当前碰撞的水果位置currentPos
-    //碰撞的对方位置collisionPos
-    //合成的水果要有重力
+    //The type of fruit currently colliding cuttentSushiType
+    //The position of the fruit currently colliding currentPos
+    //The position of the other party colliding collisionPos
+    //The synthesized fruit must have gravity
     public void CombineNewSushi(SushiType currentSushiType, Vector3 currentPos, Vector3 collisionPos)
     {
         Vector3 centerPos = (currentPos + collisionPos) / 2;

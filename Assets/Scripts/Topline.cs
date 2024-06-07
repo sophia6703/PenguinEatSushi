@@ -34,14 +34,14 @@ public class Topline : MonoBehaviour
             else
             {
                 IsMove = false;
-                Invoke("ReLoadScene",1f);//重新加载游戏
+                Invoke("ReLoadScene",1f);//reload the game
             }
             
             
         }  
     }
     
-    //碰撞触发
+    //collision start
     void OnTriggerEnter2D(Collider2D collider)
     {
         
@@ -112,16 +112,16 @@ public class Topline : MonoBehaviour
             
             
             
-            // //判断游戏是否结束
+            
             // if ((int)GameManager.gameManagerInstance.gameState < (int)GameState.GameOver)
             // {
-            //     //并且是collision状态的水果
+            //     
             //     if (collider.gameObject.GetComponent<Sushi>().sushiState== SushiState.Collision)
             //     {
             //         //gameover
             //         GameManager.gameManagerInstance.gameState = GameState.GameOver;
             //         Invoke("ChangeMoveAndCalculateScore",0.5f);
-            //         //销毁剩余水果，计算分数
+            //         
             //     }
             // }
 
@@ -136,17 +136,17 @@ public class Topline : MonoBehaviour
 
         }
     }
-    //打开红线向下移动的开关，并且gameState状态便为CaculateScore
+    //Turn on the switch that moves the red line downward, and the gameState state is CaculateScore
     void ChangeMoveAndCalculateScore()
     {
         IsMove = true;
         GameManager.gameManagerInstance.gameState = GameState.CalculateScore;
     }
 
-    //重新加载游戏场景
+    //Reload the game scene
     void ReLoadScene()
     {
-        //设置历史最高分
+        //set highest scores
         float highestScore = PlayerPrefs.GetFloat("HighestScore");
         
         if (highestScore < GameManager.gameManagerInstance.TotalScore)

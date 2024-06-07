@@ -17,10 +17,10 @@ public enum SushiType
     Eleven=10,
 }
 //
-//默认Ready
-//待命以及鼠标控制移动位置时候 StandBy
-//跌落 dropping
-//碰撞到地板或者其他水果 Collision
+//Default :Ready
+//Standby and mouse control to move position: StandBy
+//Dropping
+//Colliding with the floor or other fruits: Collision
 //
 public enum SushiState
 {
@@ -33,7 +33,7 @@ public enum SushiState
 
 public class Sushi : MonoBehaviour
 {
-    // Unity 脚本中public 的变量或者参数，可以在Unity引擎，Inspector 检查器视图中可视化的修改
+    //Public variables or parameters in Unity scripts can be modified visually in the Unity engine, Inspector view
     public SushiType sushiType = SushiType.One;
 
     private bool IsMove = false;
@@ -61,14 +61,14 @@ public class Sushi : MonoBehaviour
     void Update()
     {
         
-        //游戏状态StandBy&水果状态StandBy，可以鼠标点击控制移动，以及松开鼠标跌落。
+        //Game status StandBy & fruit status StandBy, you can click the mouse to control the movement, and release the mouse to fall.
         if (GameManager.gameManagerInstance.gameState == GameState.StandBy && sushiState == SushiState.StandBy)
         {
             if (Input.GetMouseButtonDown(0))
             {
                 IsMove = true;
             }
-            //松开鼠标
+            //Release the mouse
             if (Input.GetMouseButtonUp(0)&&IsMove)
             {
                 IsMove = false;
@@ -83,12 +83,12 @@ public class Sushi : MonoBehaviour
             if (IsMove)
             {
                 // move the object
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//屏幕坐标转换成unity世界坐标
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//Convert screen coordinates to unity world coordinates
                 this.gameObject.GetComponent<Transform>().position = new Vector3(mousePos.x, this.gameObject.GetComponent<Transform>().position.y, this.gameObject.GetComponent<Transform>().position.z);
             }
 
         }
-        //X方向的范围限制
+        //limit x
         if (this.transform.position.x > limit_x)
         {
             this.transform.position = new Vector3(limit_x, this.transform.position.y, this.transform.position.z);
@@ -99,7 +99,7 @@ public class Sushi : MonoBehaviour
             this.transform.position = new Vector3(-limit_x, this.transform.position.y, this.transform.position.z);
         }
 
-        //尺寸恢复
+        //Size recovery
         if (this.transform.localScale.x < originalScale.x)
         {
             this.transform.localScale += new Vector3 (1,1,1) * scaleSpeed;
@@ -114,16 +114,16 @@ public class Sushi : MonoBehaviour
     }
 
     
-    //碰撞
-    //Sushi的游戏对象碰撞到Collision的时候
-    //会一直不停的执行监督
-    //每一个水果身上都有碰撞检测
+    
+    //When sushi's game object collides with Collision
+    //continue to supervise
+    //There is collision detection on each fruit
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (sushiState == SushiState.Dropping)
         {
-            //碰撞到Floor
+            //Collision with Floor
             if (collision.gameObject.tag.Contains("Floor"))
             {
                 GameManager.gameManagerInstance.gameState = GameState.StandBy;
@@ -131,7 +131,7 @@ public class Sushi : MonoBehaviour
 
                 GameManager.gameManagerInstance.hitSource.Play();
             }
-            //碰撞到sushi
+            //Collision with sushi
             if (collision.gameObject.tag.Contains("Sushi"))
             {
                 GameManager.gameManagerInstance.gameState = GameState.StandBy;
@@ -144,7 +144,7 @@ public class Sushi : MonoBehaviour
         
         
         
-        //Dropping, Collision, 可以合成
+        //Dropping, Collision
 
         if ((int)sushiState>=(int)SushiState.Dropping)
         {
@@ -152,13 +152,13 @@ public class Sushi : MonoBehaviour
             {
                 if (sushiType==collision.gameObject.GetComponent<Sushi>().sushiType&& sushiType!= SushiType.Eleven)
                 {
-                    //限制只执行一次合成
+                    //Limit the synthesis to one execution
                     float thisPosxy = this.transform.position.x + this.transform.position.y;
                     float collisionPosxy = collision.transform.position.x + collision.transform.position.y;
                     if (thisPosxy > collisionPosxy)
                     {
-                        //合成，在碰撞的位置出现新的大一号的水果，尺寸由小变大
-                        //两个位置信息，sushiType
+                        //Synthesis, a new larger sushi appears at the collision position, and the size changes from small to large
+                        //Two location information, sushiType
                         GameManager.gameManagerInstance.CombineNewSushi(sushiType,this.transform.position,collision.transform.position);
                         //scores
                         GameManager.gameManagerInstance.TotalScore += sushiScore;
