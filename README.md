@@ -3,6 +3,8 @@
 Welcome to our mini game, Penguin Eat Sushi, developed for the User Interface Programming 2 course.
 This project is a Unity-based game developed in C#, where players combine sushi pieces to create new, more valuable ones to keep a penguin fed. Inspired by the popular online mini-game 'Suika Game', Penguin Eat Sushi offers a fun and engaging gameplay experience with a delicious sushi twist.
 
+Repository for group 'Stop playing mahjong Team' in User Interface Programming 2 at Uppsala University spring term 2024.
+
 # Stop playing mahjong Team:
 Xin Li
 Xuning Wang
