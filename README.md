@@ -3,6 +3,11 @@
 Welcome to our mini game, Penguin Eat Sushi, developed for the User Interface Programming 2 course.
 This project is a Unity-based game developed in C#, where players combine sushi pieces to create new, more valuable ones to keep a penguin fed. Inspired by the popular online mini-game 'Suika Game', Penguin Eat Sushi offers a fun and engaging gameplay experience with a delicious sushi twist.
 
+# Stop playing mahjong Team:
+Xin Li
+Xuning Wang
+Ruiqin YU
+
 # Github links:
 https://github.com/sophia6703/PenguinEatSushi
 
@@ -46,3 +51,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 For any inquiries or feedback, please contact us at:
 - Email: sophiaarchivv@gmail.com
 - GitHub: sophia6703(https://github.com/sophia6703)
+
+  
